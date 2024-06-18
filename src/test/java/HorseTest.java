@@ -27,4 +27,11 @@ class HorseTest {
                 new Horse("Samantha", -1));
         assertEquals("Speed cannot be negative.", exception.getMessage());
     }
+
+    @Test
+    void constructor_DistanceCantBeNegative_ThrowsIllegalArgumentException() {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () ->
+                new Horse("Samantha", 1, -5));
+        assertEquals("Distance cannot be negative.", exception.getMessage());
+    }
 }
