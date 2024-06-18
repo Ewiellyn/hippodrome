@@ -20,4 +20,11 @@ class HorseTest {
                 new Horse(argument, 5));
         assertEquals("Name cannot be blank.", exception.getMessage());
     }
+
+    @Test
+    void constructor_SpeedCantBeNegative_ThrowsIllegalArgumentException() {
+        Throwable exception = assertThrows(IllegalArgumentException.class, () ->
+                new Horse("Samantha", -1));
+        assertEquals("Speed cannot be negative.", exception.getMessage());
+    }
 }
